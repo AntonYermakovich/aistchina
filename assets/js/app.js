@@ -9,6 +9,14 @@ new Splide("#splide-partners", {
   autoScroll: {
     speed: 1,
   },
+  breakpoints: {
+		1024: {
+			perPage: 4,
+		},
+    768: {
+      perPage:3,
+    }
+  }
 }).mount(window.splide.Extensions);
 
 new Splide("#portfolio-splide", {
@@ -18,6 +26,16 @@ new Splide("#portfolio-splide", {
   pagination: true,
   arrows: false,
   gap: 20,
+  breakpoints: {
+		1024: {
+			perPage: 2,
+		},
+    768: {
+      perPage:1,
+      padding: {left: 40, right: 40},
+      type: 'loop'
+    }
+  }
 }).mount();
 
 // Changing the class when scrolling

@@ -6,8 +6,16 @@
   color: #fff;
 
   &__container {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  &__contact {
+    text-align: center;
+    img {
+        width: 60%;
+    }
   }
 
   &__bottom {

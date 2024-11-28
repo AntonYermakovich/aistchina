@@ -31,13 +31,10 @@ ul {
 }
 
 .container {
-  --padding: 0 15px;
-  --container: calc(1200px + (15px * 2));
-
-  max-width: var(--container);
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: var(--padding);
+  padding: 0 15px;
 }
 
 .btn {
@@ -140,4 +137,8 @@ ul {
 
 .splide__pagination__page.is-active {
   background: var(--primary-color);
+}
+
+.splide__pagination {
+  bottom: -20px;
 }
