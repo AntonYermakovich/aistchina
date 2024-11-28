@@ -461,7 +461,7 @@ ul {
 
 .advantages {
   padding: 100px 0;
-  background: var(--primary-color);
+  background: var(--primary-color) url("../img/china.webp") no-repeat 65% top/contain;
   color: #fff;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
   position: relative;
@@ -717,6 +717,8 @@ ul {
   width: 100%;
   padding: 50px 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: #794cab;
+  color: #fff;
 }
 .footer__container {
   display: flex;
@@ -729,4 +731,22 @@ ul {
 }
 .footer__bottom p:last-child {
   margin-top: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer__links ul, .footer__social ul {
+  margin-top: 10px;
+  display: grid;
+  gap: 5px;
+}
+.footer__links ul a, .footer__social ul a {
+  color: #fff;
+  transition: 0.15s;
+}
+.footer__links ul a:hover, .footer__social ul a:hover {
+  color: #aaa;
+}
+.footer__partners ul {
+  margin-top: 10px;
+  display: grid;
+  gap: 5px;
 }/*# sourceMappingURL=main.css.map */
