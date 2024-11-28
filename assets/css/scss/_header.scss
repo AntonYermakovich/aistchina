@@ -1,0 +1,46 @@
+.header {
+  height: 80px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 5;
+  transition: .15s;
+
+  &_sticky {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__logo {
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-size: 26px;
+    font-weight: 700;
+
+    img {
+      width: 70px;
+    }
+  }
+
+  .menu {
+    display: flex;
+    gap: 20px;
+
+    &__link {
+      font-size: 20px;
+      color: #000;
+      transition: 0.15s;
+
+      &:hover,
+      &_active {
+        color: var(--primary-color);
+      }
+    }
+  }
+}

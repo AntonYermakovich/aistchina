@@ -1,0 +1,48 @@
+.future {
+  margin-top: -70px;
+  padding-bottom: 50px;
+
+  &__container {
+    position: relative;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 20px;
+    gap: 80px;
+    padding: 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background: #fff;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .img {
+      width: 92px;
+      height: 92px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin: 0 auto;
+
+      img {
+        width: 50%;
+      }
+    }
+
+    h4 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+}

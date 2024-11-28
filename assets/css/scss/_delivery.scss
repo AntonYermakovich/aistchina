@@ -1,0 +1,116 @@
+.delivery {
+  padding: 100px 0;
+  background: var(--second-color);
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  &__item {
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 250px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+
+    &:nth-child(1)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../img/ship.webp") no-repeat center / cover;
+      z-index: -1;
+    }
+
+    &:nth-child(2)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../img/avia.webp") no-repeat center / cover;
+      z-index: -1;
+    }
+
+    &:nth-child(3)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../img/train.webp") no-repeat center / cover;
+      z-index: -1;
+    }
+
+    &:nth-child(4)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../img/mejdu.webp") no-repeat center / cover;
+      z-index: -1;
+    }
+
+    &:nth-child(5)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../img/tamoj.webp") no-repeat center / cover;
+      z-index: -1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    button {
+      margin-top: auto;
+      width: fit-content;
+      padding: 8px 20px;
+      border: 1px solid #fff;
+      background: transparent;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.15s;
+
+      &:hover {
+        color: #000;
+        background: #fff;
+      }
+    }
+  }
+}

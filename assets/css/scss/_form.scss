@@ -1,0 +1,99 @@
+.form {
+  margin-top: 30px;
+
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+  }
+
+  &__field {
+    position: relative;
+    margin-top: 15px;
+    width: 100%;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 20px 10px 10px;
+      font-size: 20px;
+      border: 1px solid #ccc;
+      outline: none;
+      border-radius: 10px;
+      resize: none;
+      transition: 0.15s;
+      background: transparent;
+
+      &:hover {
+        border-color: #858585;
+      }
+
+      &:focus {
+        border-color: var(--primary-color);
+      }
+
+      &:focus ~ label,
+      &:not(:placeholder-shown) ~ label {
+        font-size: 14px;
+        top: 3px;
+      }
+    }
+
+    label {
+      font-size: 20px;
+      position: absolute;
+      top: 15px;
+      left: 10px;
+      transition: 0.15s;
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+  }
+
+  &__line {
+    display: flex;
+    gap: 20px;
+  }
+
+  select {
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 20px;
+    appearance: none;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: 0.15s;
+    cursor: pointer;
+    background: transparent;
+
+    &:hover {
+      border-color: #858585;
+    }
+  }
+
+  button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.15s;
+
+    &:hover {
+      color: #fff;
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  }
+}
