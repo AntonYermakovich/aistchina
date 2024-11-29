@@ -64,19 +64,43 @@
     <section class="section hero" id="hero">
       <div class="hero__container container">
         <div class="hero__info">
-          <h1>Доставка товаров из Китая быстро и выгодно</h1>
+          <h1>Доставка товаров из Китая <span class="primary">быстро</span> и <span class="primary">выгодно</span></h1>
           <p class="text">
             Мы — логистическая компания, которая предоставляет комплексные
             услуги по доставке товаров из Китая в любую точку мира. С нами вы
             получите надежную, безопасную и быструю доставку по доступным ценам
           </p>
-          <a href="#works" class="btn">Узнать больше</a>
         </div>
-        <!-- <div class="hero__img"></div> -->
+        <div class="hero__form">
+          <form class="form form__call">
+            <div class="form__field">
+              <input name="name" type="text" placeholder=" " id="name" />
+              <label for="name">Ваше имя</label>
+            </div>
+            <div class="form__field">
+              <input name="phone" type="text" placeholder=" " id="phone" />
+              <label for="phone">Телефон</label>
+            </div>
+            <div class="form__field">
+              <textarea
+                rows="5"
+                name="message"
+                placeholder=" "
+                id="message"
+              ></textarea>
+              <label for="message">Ваше сообщение</label>
+            </div>
+            <button>Отправить запрос</button>
+          </form>
+        </div>
+
+        <a href="#future" class="hero__arrow">
+          <img src="./assets/img/arrow-down.svg" alt="Icon">
+        </a>
       </div>
     </section>
 
-    <section class="future">
+    <section class="future" id="future">
       <div class="future__container container">
         <div class="future__list">
           <div class="future__item">
