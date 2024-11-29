@@ -10,13 +10,13 @@ new Splide("#splide-partners", {
     speed: 1,
   },
   breakpoints: {
-		1024: {
-			perPage: 4,
-		},
+    1024: {
+      perPage: 4,
+    },
     768: {
-      perPage:3,
-    }
-  }
+      perPage: 3,
+    },
+  },
 }).mount(window.splide.Extensions);
 
 new Splide("#portfolio-splide", {
@@ -27,15 +27,15 @@ new Splide("#portfolio-splide", {
   arrows: false,
   gap: 20,
   breakpoints: {
-		1024: {
-			perPage: 2,
-		},
+    1024: {
+      perPage: 2,
+    },
     768: {
-      perPage:1,
-      padding: {left: 40, right: 40},
-      type: 'loop'
-    }
-  }
+      perPage: 1,
+      padding: { left: 40, right: 40 },
+      type: "loop",
+    },
+  },
 }).mount();
 
 // Changing the class when scrolling
@@ -92,20 +92,33 @@ function openModal() {
   });
 }
 
-document.querySelector(".consultation__btn").addEventListener("click", () => {
-  const modalConsultation = document.querySelector(".modal__consultation");
+document.querySelectorAll(".consultation__btn").forEach((btn) =>
+  btn.addEventListener("click", () => {
+    const modalConsultation = document.querySelector(".modal__consultation");
 
-  document.body.classList.add("hidden");
-  modalConsultation.classList.remove("modal_hidden");
+    document.body.classList.add("hidden");
+    modalConsultation.classList.remove("modal_hidden");
 
-  modalConsultation.addEventListener("click", (e) => {
-    if (
-      e.target.classList.contains("modal_close") ||
-      e.target.classList.contains("modal__overlay")
-    ) {
-      document.body.classList.remove("hidden");
-      modalConsultation.classList.add("modal_hidden");
-    }
-    return;
-  });
-});
+    modalConsultation.addEventListener("click", (e) => {
+      if (
+        e.target.classList.contains("modal_close") ||
+        e.target.classList.contains("modal__overlay")
+      ) {
+        document.body.classList.remove("hidden");
+        modalConsultation.classList.add("modal_hidden");
+      }
+      return;
+    });
+  })
+);
+
+// Open menu in mobile
+document.querySelector('.header__icon').addEventListener('click', openMenu)
+
+function openMenu () {
+  if(this.classList.contains('header__icon_active')) {
+    this.classList.remove('header__icon_active')
+  } else {
+    this.classList.add('header__icon_active')
+  }
+}

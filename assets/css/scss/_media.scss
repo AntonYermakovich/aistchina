@@ -9,8 +9,9 @@
     max-width: 768px;
   }
 
-  .header .menu {
-    display: none;
+  .header .menu__link {
+    font-size: 16px;
+    padding: 6px 10px;
   }
 
   .hero {
@@ -92,12 +93,18 @@
         max-width: 540px;
     }
 
-    .works__list, .advantages__list, .delivery__list {
-        grid-template-columns: 1fr;
+    .header {
+      .menu {
+        display: none;
+      }
+
+      &__icon {
+        display: block;
+      }
     }
 
-    .works__item img {
-        object-fit: contain;
+    .works__list, .advantages__list, .delivery__list {
+        grid-template-columns: 1fr;
     }
 
     .title {
@@ -114,5 +121,50 @@
 
     .footer__container {
         grid-template-columns: repeat(1, 1fr);
+        text-align: center;
+    }
+
+    .modal__title {
+      font-size: 22px;
+    }
+
+    .modal__description {
+      font-size: 14px;
+    }
+
+    .modal__content {
+      padding: 20px 30px;
+    }
+
+    .advantages__info p {
+      font-size: 14px;
+    }
+
+    .portfolio__info {
+      h4 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .partners__item {
+      h3 {
+        font-size: 18px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .form__line {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .footer__bottom p:last-child {
+      font-size: 14px;
     }
 }

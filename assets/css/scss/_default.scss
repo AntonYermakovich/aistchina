@@ -16,6 +16,8 @@ html {
 
 body {
   font-family: "Exo 2", sans-serif;
+  min-width: 375px;
+  min-height: 100vh;
 
   &.hidden {
     overflow: hidden;
@@ -83,7 +85,7 @@ ul {
   &_close {
     width: 30px;
     height: 30px;
-    background: url("../img/close.svg") no-repeat center / cover;
+    background: url("../img/close.webp") no-repeat center / cover;
     position: absolute;
     right: 10px;
     top: 10px;
@@ -98,6 +100,7 @@ ul {
   }
 
   &__content {
+    margin: 0 15px;
     max-width: 600px;
     width: 100%;
     background: #fff;

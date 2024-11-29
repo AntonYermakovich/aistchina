@@ -12,6 +12,11 @@
         gap: 40px;
     }
 
+    &__info {
+        display: grid;
+        gap: 5px;
+    }
+
     &__item {
         display: flex;
         gap: 30px;
