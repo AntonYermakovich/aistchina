@@ -63,6 +63,14 @@ ul {
   color: var(--primary-color);
 }
 
+.bold {
+  font-weight: bold;
+}
+
+svg {
+  height: -webkit-fill-available;
+}
+
 .title {
   font-size: 36px;
   font-weight: 600;
@@ -139,6 +147,8 @@ ul {
 
     img {
       width: 30px;
+      height: 30px;
+      fill: #1E1E1E;
     }
   }
 }

@@ -2,6 +2,18 @@
   .container {
     max-width: 1024px;
   }
+
+  .header .menu {
+    margin-left: 40px;
+  }
+
+  .hero__form {
+    width: 80%;
+  }
+
+  .hero__info h1 {
+    font-size: 42px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -11,30 +23,44 @@
 
   .header .menu__link {
     font-size: 16px;
-    padding: 6px 10px;
   }
 
-  .hero {
-    padding: 50px 0 150px;
+  .header .socials,
+  .header .number {
+    display: none;
   }
+
+  .header__container {
+    justify-content: space-between;
+  }
+
+  .header .menu {
+    margin-left: 0;
+    gap: 10px;
+  }
+
   .hero__container {
     grid-template-columns: 1fr;
-    place-items: baseline;
+    gap: 40px;
+  }
+
+  .hero__form {
+    width: 70%;
+
+    .form button {
+      background: transparent;
+    }
   }
 
   .hero__info {
     max-width: 70%;
 
     h1 {
-      font-size: 28px;
+      font-size: 34px;
     }
 
     p {
       font-size: 18px;
-    }
-
-    a {
-      font-size: 16px;
     }
   }
 

@@ -101,17 +101,33 @@
     display: flex;
     gap: 10px;
 
+    &__item {
+      width: 35px;
+      height: 35px;
+      background: #fff;
+      border-radius: 50%;
+      transition: .15s;
+
+      &:hover {
+        background: var(--primary-color);
+
+        svg {
+          fill: #fff;
+        }
+      }
+    }
+
     &__link {
       display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
 
-      img {
-        width: 25px;
-        height: 25px;
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: black;
         transition: .15s;
-
-        &:hover {
-          opacity: .8;
-        }
       }
     }
   }
