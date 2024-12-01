@@ -672,6 +672,11 @@ svg {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
+.additional__line-three {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
 .additional__column {
   display: grid;
   gap: 20px;
@@ -706,22 +711,21 @@ svg {
 .additional__item ul {
   display: grid;
   gap: 10px;
+  list-style-type: disc;
+  padding-left: 20px;
 }
 .additional__item ul li {
-  padding-left: 30px;
   color: rgba(255, 255, 255, 0.8);
-  position: relative;
 }
-.additional__item ul li::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+
+.sales {
+  width: 100%;
+}
+.sales__list {
+  display: grid;
+  place-items: center;
+  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .portfolio {
@@ -1003,7 +1007,10 @@ svg {
     max-width: 1024px;
   }
   .header .menu {
-    margin-left: 40px;
+    margin-left: 20px;
+  }
+  .header .number {
+    margin-left: 30px;
   }
   .hero__form {
     width: 80%;
@@ -1029,6 +1036,9 @@ svg {
   .header .menu {
     margin-left: 0;
     gap: 10px;
+  }
+  .hero {
+    height: auto;
   }
   .hero__container {
     grid-template-columns: 1fr;
@@ -1082,7 +1092,7 @@ svg {
   }
   .contacts__info .links {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .footer__container {
     grid-template-columns: repeat(2, 1fr);
@@ -1099,11 +1109,19 @@ svg {
   .header__icon {
     display: block;
   }
-  .works__list, .advantages__list, .delivery__list {
+  .works__list,
+  .advantages__list,
+  .delivery__list {
     grid-template-columns: 1fr;
   }
   .title {
     font-size: 28px;
+  }
+  .additional__line {
+    grid-template-columns: 1fr;
+  }
+  .sales__list {
+    grid-template-columns: repeat(2, 1fr);
   }
   .advantages {
     background-position: center;
@@ -1145,5 +1163,16 @@ svg {
   }
   .footer__bottom p:last-child {
     font-size: 14px;
+  }
+}
+@media (max-width: 540px) {
+  .hero__info {
+    max-width: 100%;
+  }
+  .hero__form {
+    width: 100%;
+  }
+  .sales__list {
+    grid-template-columns: repeat(1, 1fr);
   }
 }/*# sourceMappingURL=main.css.map */
