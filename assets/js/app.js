@@ -18,9 +18,9 @@ new Splide("#splide-partners", {
     },
   },
   classes: {
-		prev  : 'splide__arrow--prev custom-prev-btn',
-		next  : 'splide__arrow--next custom-next-btn',
-  }
+    prev: "splide__arrow--prev custom-prev-btn",
+    next: "splide__arrow--next custom-next-btn",
+  },
 }).mount();
 
 new Splide("#portfolio-splide", {
@@ -117,15 +117,31 @@ document.querySelectorAll(".consultation__btn").forEach((btn) =>
 );
 
 // Open menu in mobile
-document.querySelector('.header__icon').addEventListener('click', openMenu)
-const menu = document.querySelector('.menu')
+const iconBurger = document.querySelector(".header__icon");
+const menu = document.querySelector(".menu");
+const overlay = document.querySelector(".overlay");
+const menuItems = document.querySelectorAll(".menu__item");
 
-function openMenu () {
-  if(this.classList.contains('header__icon_active')) {
-    this.classList.remove('header__icon_active')
-    menu.classList.remove('menu_show')
+iconBurger.addEventListener("click", openMenu);
+
+function openMenu() {
+  if (this.classList.contains("header__icon_active")) {
+    closeMenu();
   } else {
-    this.classList.add('header__icon_active')
-    menu.classList.add('menu_show')
+    this.classList.add("header__icon_active");
+    menu.classList.add("menu_show");
+    document.body.classList.add("hidden");
+    overlay.classList.add("overlay_show");
   }
+
+  overlay.addEventListener("click", () => closeMenu());
 }
+
+function closeMenu() {
+  iconBurger.classList.remove("header__icon_active");
+  menu.classList.remove("menu_show");
+  document.body.classList.remove("hidden");
+  overlay.classList.remove("overlay_show");
+}
+
+menuItems.forEach((item) => item.addEventListener("click", () => closeMenu()));

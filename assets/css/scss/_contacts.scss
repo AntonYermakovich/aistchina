@@ -51,7 +51,6 @@
         display: flex;
         align-items: center;
         gap: 20px;
-        justify-content: space-between;
 
         &:last-child {
           border-bottom: none;
@@ -59,6 +58,8 @@
 
         span {
             color: #6B6B6C;
+            width: 85px;
+            flex-shrink: 0;
         }
 
         p {
