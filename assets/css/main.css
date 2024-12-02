@@ -1174,6 +1174,7 @@ svg {
     position: relative;
     z-index: 5;
     display: block;
+    margin-left: 0;
   }
   .header .menu {
     position: absolute;
