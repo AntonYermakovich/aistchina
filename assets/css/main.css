@@ -157,7 +157,7 @@ svg {
 .modal__item img {
   width: 30px;
   height: 30px;
-  fill: #1E1E1E;
+  fill: #1e1e1e;
 }
 
 .splide__pagination__page.is-active {
@@ -166,6 +166,34 @@ svg {
 
 .splide__pagination {
   bottom: -20px;
+}
+
+.custom-prev-btn,
+.custom-next-btn {
+  background: #fff;
+  border: 1px solid var(--primary-color);
+  transition: 0.15s;
+  opacity: 1;
+}
+.custom-prev-btn svg,
+.custom-next-btn svg {
+  fill: var(--primary-color);
+}
+.custom-prev-btn:hover,
+.custom-next-btn:hover {
+  background: var(--primary-color);
+}
+.custom-prev-btn:hover svg,
+.custom-next-btn:hover svg {
+  fill: #fff;
+}
+
+.custom-prev-btn {
+  left: -0.5rem;
+}
+
+.custom-next-btn {
+  right: -0.5rem;
 }
 
 .header {
@@ -764,20 +792,59 @@ svg {
 }
 .partners__item {
   display: grid;
-  place-items: center;
   text-align: center;
+  border: 1px solid #ccc;
+  padding: 20px 10px;
+  border-radius: 10px;
+  gap: 20px;
 }
 .partners__item img {
-  width: 50%;
-  height: 100px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  margin: auto;
+  height: 200px;
 }
-.partners__item h3 {
+.partners__info {
+  display: grid;
+  gap: 20px;
+}
+.partners__info h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.partners__info ul {
+  font-size: 16px;
+  display: grid;
+  gap: 5px;
+}
+.partners__info ul li {
+  display: flex;
+  justify-content: space-between;
+}
+.partners__info .price {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.partners__info .price p {
   font-size: 20px;
   font-weight: 600;
-  margin-top: 30px;
-  margin-bottom: 14px;
+}
+.partners__info .price button {
+  padding: 8px 20px;
+  border-radius: 7px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 14px;
+  background: transparent;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: 0.15s;
+}
+.partners__info .price button:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
 }
 
 .form {

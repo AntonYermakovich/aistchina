@@ -1,23 +1,27 @@
 // Sliders
 new Splide("#splide-partners", {
-  perPage: 5,
+  perPage: 3,
+  perMove: 1,
   rewind: true,
-  pagination: false,
-  arrows: false,
+  pagination: true,
+  arrows: true,
   type: "loop",
-  drag: "free",
-  autoScroll: {
-    speed: 1,
-  },
+  gap: 10,
+  padding: 5,
   breakpoints: {
     1024: {
-      perPage: 4,
+      perPage: 2,
     },
     768: {
-      perPage: 3,
+      perPage: 1,
+      arrows: false,
     },
   },
-}).mount(window.splide.Extensions);
+  classes: {
+		prev  : 'splide__arrow--prev custom-prev-btn',
+		next  : 'splide__arrow--next custom-next-btn',
+  }
+}).mount();
 
 new Splide("#portfolio-splide", {
   perPage: 3,

@@ -1,7 +1,7 @@
 :root {
   --primary-color: #794cab;
   --second-color: #f9f9fb;
-  --primary-2: #263147;;
+  --primary-2: #263147;
   --text-gray: #6b6b6c;
 }
 
@@ -92,7 +92,7 @@ svg {
   align-items: center;
   justify-content: center;
   opacity: 1;
-  transition: .15s;
+  transition: 0.15s;
 
   &_hidden {
     opacity: 0;
@@ -152,7 +152,7 @@ svg {
     img {
       width: 30px;
       height: 30px;
-      fill: #1E1E1E;
+      fill: #1e1e1e;
     }
   }
 }
@@ -163,4 +163,32 @@ svg {
 
 .splide__pagination {
   bottom: -20px;
+}
+
+.custom-prev-btn,
+.custom-next-btn {
+  background: #fff;
+  border: 1px solid var(--primary-color);
+  transition: 0.15s;
+  opacity: 1;
+
+  svg {
+    fill: var(--primary-color);
+  }
+
+  &:hover {
+    background: var(--primary-color);
+
+    svg {
+      fill: #fff;
+    }
+  }
+}
+
+.custom-prev-btn {
+  left: -0.5rem;
+}
+
+.custom-next-btn {
+  right: -0.5rem;
 }

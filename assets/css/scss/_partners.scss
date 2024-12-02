@@ -1,27 +1,74 @@
 .partners {
-    width: 100%;
-    padding: 100px 0;
+  width: 100%;
+  padding: 100px 0;
 
-    &__splide {
-        margin-top: 50px;
+  &__splide {
+    margin-top: 50px;
+  }
+
+  &__item {
+    display: grid;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px 10px;
+    border-radius: 10px;
+    gap: 20px;
+
+    img {
+      margin: auto;
+      height: 200px;
+    }
+  }
+
+  &__info {
+    display: grid;
+    gap: 20px;
+
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
     }
 
-    &__item {
-        display: grid;
-        place-items: center;
-        text-align: center;
+    ul {
+      font-size: 16px;
+      display: grid;
+      gap: 5px;
 
-        img {
-            width: 50%;
-            height: 100px;
-            object-fit: contain;
-        }
-        
-        h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-top: 30px;
-            margin-bottom: 14px;
-        }
+      li {
+        display: flex;
+        justify-content: space-between;
+      }
     }
+
+    .price {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      button {
+        padding: 8px 20px;
+        border-radius: 7px;
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+        cursor: pointer;
+        font-size: 14px;
+        background: transparent;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: 0.15s;
+
+        &:hover {
+          background: var(--primary-color);
+          border-color: var(--primary-color);
+          color: #fff;
+        }
+      }
+    }
+  }
 }
