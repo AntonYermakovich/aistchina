@@ -118,11 +118,14 @@ document.querySelectorAll(".consultation__btn").forEach((btn) =>
 
 // Open menu in mobile
 document.querySelector('.header__icon').addEventListener('click', openMenu)
+const menu = document.querySelector('.menu')
 
 function openMenu () {
   if(this.classList.contains('header__icon_active')) {
     this.classList.remove('header__icon_active')
+    menu.classList.remove('menu_show')
   } else {
     this.classList.add('header__icon_active')
+    menu.classList.add('menu_show')
   }
 }
