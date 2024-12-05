@@ -159,6 +159,10 @@ svg {
   height: 30px;
   fill: #1e1e1e;
 }
+.modal__img {
+  margin-top: 50px;
+  text-align: center;
+}
 
 .splide__pagination__page.is-active {
   background: var(--primary-color);
@@ -211,6 +215,15 @@ svg {
 .overlay_show {
   opacity: 1;
   pointer-events: all;
+}
+
+.slide_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide_center a img {
+  width: 100%;
 }
 
 .header {
@@ -282,7 +295,7 @@ svg {
 .header .menu {
   display: flex;
   gap: 10px;
-  margin-left: 100px;
+  margin-left: 30px;
 }
 .header .menu__link {
   font-size: 16px;
@@ -587,37 +600,7 @@ svg {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
-.delivery__item:nth-child(1)::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("../img/ship.webp") no-repeat center/cover;
-  z-index: -1;
-}
-.delivery__item:nth-child(2)::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("../img/avia.webp") no-repeat center/cover;
-  z-index: -1;
-}
-.delivery__item:nth-child(3)::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("../img/train.webp") no-repeat center/cover;
-  z-index: -1;
-}
-.delivery__item:nth-child(4)::before {
+.delivery__item-car::before {
   content: "";
   position: absolute;
   top: 0;
@@ -627,7 +610,7 @@ svg {
   background: url("../img/car.webp") no-repeat center/cover;
   z-index: -1;
 }
-.delivery__item:nth-child(5)::before {
+.delivery__item-bigcar::before {
   content: "";
   position: absolute;
   top: 0;
@@ -635,6 +618,36 @@ svg {
   width: 100%;
   height: 100%;
   background: url("../img/bigCar.webp") no-repeat center/cover;
+  z-index: -1;
+}
+.delivery__item-airplane::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/avia.webp") no-repeat center/cover;
+  z-index: -1;
+}
+.delivery__item-train::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/train.webp") no-repeat center/cover;
+  z-index: -1;
+}
+.delivery__item-ship::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/ship.webp") no-repeat center/cover;
   z-index: -1;
 }
 .delivery__item::after {
@@ -654,6 +667,10 @@ svg {
 }
 .delivery__item p {
   color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 .delivery__item button {
   margin-top: auto;
@@ -673,58 +690,16 @@ svg {
   background: #fff;
 }
 
-.advantages {
-  padding: 100px 0;
-  background: var(--primary-color) url("../img/china.webp") no-repeat 65% top/contain;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-  position: relative;
-}
-.advantages__list {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-}
-.advantages__info {
-  display: grid;
-  gap: 5px;
-}
-.advantages__item {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-.advantages__item .img {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  flex-shrink: 0;
-}
-.advantages__item .img img {
-  width: 100%;
-}
-
 .additional {
   width: 100%;
 }
 .additional__list {
   display: grid;
-  gap: 20px;
-}
-.additional__line {
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
-.additional__line-three {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
-}
-.additional__column {
-  display: grid;
-  gap: 20px;
+.additional__item:first-child {
+  grid-row: 1/3;
 }
 .additional__item {
   background: var(--primary-color);
@@ -763,14 +738,36 @@ svg {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.sales {
-  width: 100%;
+.advantages {
+  padding: 100px 0;
+  background: var(--primary-color) url("../img/china.webp") no-repeat 65% top/contain;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  position: relative;
 }
-.sales__list {
+.advantages__list {
+  margin-top: 50px;
   display: grid;
-  place-items: center;
-  gap: 40px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.advantages__info {
+  display: grid;
+  gap: 5px;
+}
+.advantages__item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.advantages__item .img {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  flex-shrink: 0;
+}
+.advantages__item .img img {
+  width: 100%;
 }
 
 .portfolio {
@@ -1202,7 +1199,7 @@ svg {
     left: 0;
     background: var(--primary-2);
     z-index: 0;
-    padding: 100px 30px 50px;
+    padding: 100px 30px 85px;
     width: 100%;
     transform: translateX(-100%);
     transition: 0.25s;
@@ -1224,8 +1221,11 @@ svg {
   .title {
     font-size: 28px;
   }
-  .additional__line {
+  .additional__list {
     grid-template-columns: 1fr;
+  }
+  .additional__item:first-child {
+    grid-row: auto;
   }
   .sales__list {
     grid-template-columns: repeat(2, 1fr);

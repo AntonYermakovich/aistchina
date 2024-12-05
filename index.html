@@ -33,7 +33,7 @@
             <a href="#advantages" class="menu__link">Преимущества</a>
           </li>
           <li class="menu__item">
-            <a href="#portfolio" class="menu__link">Портфолио</a>
+            <a href="#partners" class="menu__link">Товары</a>
           </li>
           <li class="menu__item">
             <a href="#contacts" class="menu__link">Контакты</a>
@@ -67,7 +67,7 @@
             <a
               href="https://www.wechat.com/ru/"
               target="_blank"
-              class="socials__link"
+              class="socials__link socials__link-wechat"
             >
               <svg>
                 <use xlink:href="sprite.svg#wechat"></use>
@@ -103,8 +103,8 @@
             </p>
 
             <p>
-              Наша компания имеет склады и офисы в Пекине, Гуанчжоу, Иу, Фошань.
-              Общая площадь складов составляет 25 000 м².
+              Наша компания имеет свои склады и офисы в Пекине, Гуанчжоу, Иу,
+              Фошань. Общая площадь складов составляет 25 000 м².
             </p>
           </div>
         </div>
@@ -228,40 +228,57 @@
         <h2 class="title">Виды доставок</h2>
 
         <div class="delivery__list">
-          <div class="delivery__item">
-            <h3>Морская доставка</h3>
-            <p>Большие партии товаров, контейнерные перевозки.</p>
-            <button class="btn_more" data-delivery="0">Подробнее</button>
-          </div>
-
-          <div class="delivery__item">
-            <h3>Авиа доставка</h3>
-            <p>Быстрая доставка мелкогабаритных и срочных товаров.</p>
-            <button class="btn_more" data-delivery="1">Подробнее</button>
-          </div>
-
-          <div class="delivery__item">
-            <h3>Железнодорожные перевозки</h3>
+          <div class="delivery__item delivery__item-car">
+            <h3>Авто быстрое</h3>
             <p>
-              Недорогие и надежные грузоперевозки через Евразийский континент.
-            </p>
-            <button class="btn_more" data-delivery="2">Подробнее</button>
-          </div>
-
-          <div class="delivery__item">
-            <h3>Авто быстрая доставка</h3>
-            <p>
-              Недорогие и надежные грузоперевозки через Евразийский континент.
+              Данный вид доставки отлично подходит для предпринимателей МП для
+              срочного пополнения склада товаром. Данный вид доставки более
+              дешевый, чем авиа, но по скорости не уступает авиа доставке.
             </p>
             <button class="btn_more" data-delivery="4">Подробнее</button>
           </div>
 
-          <div class="delivery__item">
-            <h3>Авто доставка</h3>
+          <div class="delivery__item delivery__item-bigcar">
+            <h3>Авто стандарт</h3>
             <p>
-              Недорогие и надежные грузоперевозки через Евразийский континент.
+              Самый оптимальный вариант для регулярных поставок товаров. Авто
+              доставка позволяет осуществлять перевозку тех видов грузов,
+              которые могут быть запрещены к перевозке морем, авиа и жд
+              доставками.
             </p>
             <button class="btn_more" data-delivery="3">Подробнее</button>
+          </div>
+
+          <div class="delivery__item delivery__item-airplane">
+            <h3>Авиа</h3>
+            <p>
+              Самый быстрый способ доставки товаров. Идеально подходит для
+              срочных отправок или товаров с высоким уровнем ценности, таких как
+              электроника, одежда или медикаменты.
+            </p>
+            <button class="btn_more" data-delivery="1">Подробнее</button>
+          </div>
+
+          <div class="delivery__item delivery__item-train">
+            <h3>ЖД</h3>
+            <p>
+              Отличный и самый оптимальный вариант для больших партий товаров,
+              которые не требуют срочной доставки. Железнодорожный транспорт
+              сочетает в себе хорошую стоимость и время в пути, которое обычно
+              составляет от 15 до 30 дней.
+            </p>
+            <button class="btn_more" data-delivery="2">Подробнее</button>
+          </div>
+
+          <div class="delivery__item delivery__item-ship">
+            <h3>Море</h3>
+            <p>
+              Это наиболее экономичный способ доставки для крупных партий
+              товаров и тяжелых грузов. Мы предлагаем контейнерные перевозки
+              (FCL/LCL), а также консолидацию грузов, чтобы сэкономить на
+              стоимости доставки.
+            </p>
+            <button class="btn_more" data-delivery="0">Подробнее</button>
           </div>
         </div>
 
@@ -269,110 +286,149 @@
 
         <div class="additional">
           <div class="additional__list">
-            <div class="additional__line">
-              <div class="additional__item">
-                <h3>Таможенное оформление, услуги брокера</h3>
-                <ul>
-                  <li>Таможенное оформление на территории Китая</li>
-                  <li>
-                    Предварительный расчет себестоимости товара по прибытию в
-                    пункт назначения
-                  </li>
-                  <li>
-                    Составление и формирование всего пакета документов для
-                    импорта товара в пункт назначения
-                  </li>
-                  <li>
-                    Полное сопровождение таможенной очистки на территории стран
-                    СНГ
-                  </li>
-                </ul>
-              </div>
-              <div class="additional__column">
-                <div class="additional__item">
-                  <h3>Оплата поставщикам в Китае</h3>
-                </div>
-                <div class="additional__item">
-                  <h3>Проверка товаров перед отправкой</h3>
-                  <p>
-                    Производим проверку товара перед его отправкой в адрес
-                    клиента. Отчет проверки предоставляется в фото и видео
-                    формате
-                  </p>
-                </div>
-              </div>
+            <div class="additional__item">
+              <h3>Таможенное оформление, услуги брокера</h3>
+              <ul>
+                <li>Таможенное оформление на территории Китая</li>
+                <li>
+                  Предварительный расчет себестоимости товара по прибытию в
+                  пункт назначения
+                </li>
+                <li>
+                  Составление и формирование всего пакета документов для импорта
+                  товара в пункт назначения
+                </li>
+                <li>
+                  Полное сопровождение таможенной очистки на территории стран
+                  СНГ
+                </li>
+              </ul>
             </div>
-            <div class="additional__line">
-              <div class="additional__item">
-                <h3>Страхование груза</h3>
-                <p>
-                  Для нас важны не только качество и скорость, а также
-                  безопасность и сохранность ваших грузов!
-                </p>
-              </div>
-              <div class="additional__item">
-                <h3>Предоставляем склад для самостоятельных выкупов товаров</h3>
-                <p>
-                  Предоставляем склад для хранения ваших товаров для самовыкупа
-                </p>
-              </div>
-              <div class="additional__item">
-                <h3>Поиск поставщиков в Китае</h3>
-                <p>
-                  Помогаем с поиском прямых поставщиков товаров, проводим
-                  переговоры, производим выездную инспекцию, предоставляем фото,
-                  видео и документальные отчеты инспекции
-                </p>
-              </div>
-              <div class="additional__item">
-                <h3>Поиск поставщиков в Китае</h3>
-                <p>
-                  Организовываем встречу, трансфер и проживание в Китае.
-                  Сопровождаем вас на выставках с сотрудниками со знанием
-                  русского, китайского и английского языков
-                </p>
-              </div>
+            <div class="additional__item">
+              <h3>Оплата поставщикам в Китае</h3>
+
+              <ul>
+                <li>
+                  заключаем трехсторонние договоры с нашей торговой компанией
+                  для проведения плажей
+                </li>
+                <li>
+                  проводим платежи за товары поставщикам, не имеющим экспортных
+                  лицензий
+                </li>
+              </ul>
             </div>
-            <div class="additional__line"></div>
-            <div class="additional__line"></div>
+            <div class="additional__item">
+              <h3>Проверка товаров перед отправкой</h3>
+              <p>
+                Производим проверку товара перед его отправкой в адрес клиента.
+                Отчет проверки предоставляется в фото и видео формате
+              </p>
+            </div>
+            <div class="additional__item">
+              <h3>Страхование груза</h3>
+              <p>
+                Для нас важны не только качество и скорость, а также
+                безопасность и сохранность ваших грузов!
+              </p>
+            </div>
+            <div class="additional__item">
+              <h3>Предоставляем склад для самостоятельных выкупов товаров</h3>
+              <p>
+                Предоставляем склад для хранения ваших товаров для самовыкупа
+              </p>
+            </div>
+            <div class="additional__item">
+              <h3>Поиск поставщиков в Китае</h3>
+              <p>
+                Помогаем с поиском прямых поставщиков товаров, проводим
+                переговоры, производим выездную инспекцию, предоставляем фото,
+                видео и документальные отчеты инспекции
+              </p>
+            </div>
+            <div class="additional__item">
+              <h3>Личное сопровождение клиента в Китае</h3>
+              <p>
+                Организовываем встречу, трансфер и проживание в Китае.
+                Сопровождаем вас на выставках, заводах, встречах с поставщиками
+                клиента, знакомим с местными достопримечательностями. Наша
+                команда разговариет на китайском, английском и русском языках.
+              </p>
+            </div>
           </div>
         </div>
 
-        <h2 class="title title__second">Выкуп товаров</h2>
+        <h2 class="title title__second">
+          Выкуп товаров с китайских интернет площадок
+        </h2>
 
-        <div class="sales">
-          <div class="sales__list">
-            <a
-              href="https://www.taobao.com/"
-              target="_blank"
-              class="sales__item"
-            >
-              <img src="./assets/img/sales1.webp" alt="Sales" />
-            </a>
-            <a
-              href="https://www.poizon.com/"
-              target="_blank"
-              class="sales__item"
-            >
-              <img src="./assets/img/sales2.webp" alt="Sales" />
-            </a>
-            <a
-              href="https://www.alibaba.com/premium/buying_things_online.html"
-              target="_blank"
-              class="sales__item"
-            >
-              <img src="./assets/img/sales3.webp" alt="Sales" />
-            </a>
-            <a
-              href="https://m.pinduoduo.com/"
-              target="_blank"
-              class="sales__item"
-            >
-              <img src="./assets/img/sales4.webp" alt="Sales" />
-            </a>
-            <a href="https://www.1688.com/" target="_blank" class="sales__item">
-              <img src="./assets/img/sales5.webp" alt="Sales" />
-            </a>
+        <div class="splide" id="sales-splide">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide slide_center">
+                <a
+                  href="https://www.taobao.com/"
+                  target="_blank"
+                  class="sales__item"
+                >
+                  <img src="./assets/img/sales1.webp" alt="Sales" />
+                </a>
+              </li>
+              <li class="splide__slide slide_center">
+                <a
+                  href="https://www.poizon.com/"
+                  target="_blank"
+                  class="sales__item"
+                >
+                  <img src="./assets/img/sales2.webp" alt="Sales" />
+                </a>
+              </li>
+              <li class="splide__slide slide_center">
+                <a
+                  href="https://www.alibaba.com/premium/buying_things_online.html"
+                  target="_blank"
+                  class="sales__item"
+                >
+                  <img src="./assets/img/sales3.webp" alt="Sales" />
+                </a>
+              </li>
+              <li class="splide__slide slide_center">
+                <a
+                  href="https://m.pinduoduo.com/"
+                  target="_blank"
+                  class="sales__item"
+                >
+                  <img src="./assets/img/sales4.webp" alt="Sales" />
+                </a>
+              </li>
+              <li class="splide__slide slide_center">
+                <a
+                  href="https://www.1688.com/"
+                  target="_blank"
+                  class="sales__item"
+                >
+                  <img src="./assets/img/sales5.webp" alt="Sales" />
+                </a>
+              </li>
+              <li class="splide__slide slide_center">
+                <a
+                  href="https://www.made-in-china.com/"
+                  target="_blank"
+                  class="sales__item"
+                >
+                  <img src="./assets/img/sales6.webp" alt="Sales" />
+                </a>
+              </li>
+              <li class="splide__slide slide_center">
+                <a
+                  href="https://global.jd.com/"
+                  target="_blank"
+                  class="sales__item"
+                >
+                  <img src="./assets/img/sales7.webp" alt="Sales" />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -423,8 +479,8 @@
             </div>
             <div class="advantages__info">
               <h3>
-                Все грузы упаковываем индивидуально, в зависимости от характера
-                груза для надежной перевозки
+                Все грузы упаковываем индивидуально, в зависимости от вида груза
+                для надежной перевозки
               </h3>
             </div>
           </div>
@@ -471,116 +527,22 @@
               <img src="./assets/img/advantage10.webp" alt="Future" />
             </div>
             <div class="advantages__info">
-              <h3>Прием платежей в любой валюте: RUB, BYN, CNY, USD, EUR</h3>
+              <h3>
+                Прием платежей в любой валюте: RUB, BYN, CNY, USD, EUR, USDT
+              </h3>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section portfolio" id="portfolio">
-      <div class="portfolio__container container">
-        <h2 class="title">Выполненные работы</h2>
-
-        <div class="splide" id="portfolio-splide" aria-label="Portfolio">
-          <div class="splide__track">
-            <ul class="splide__list">
-              <li class="splide__slide">
-                <div class="portfolio__item">
-                  <img src="./assets/img/portfolio1.webp" alt="portfolio" />
-                  <div class="portfolio__info">
-                    <h4>
-                      Доставка крупной партии электроники для интернет-магазина
-                    </h4>
-                    <p>
-                      Компания "Техно-Маркет" — крупный интернет-магазин
-                      электроники, который закупает товары у китайских
-                      производителей. Заказчик сталкивался с проблемами задержек
-                      при международной доставке и высокими издержками на
-                      логистику.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="portfolio__item">
-                  <img src="./assets/img/portfolio2.webp" alt="portfolio" />
-                  <div class="portfolio__info">
-                    <h4>
-                      Доставка материалов для строительства инфраструктуры
-                    </h4>
-                    <p>
-                      Компания "СтройПроект" обратилась к нам с просьбой
-                      доставить строительные материалы (бетонные блоки и
-                      арматуру) из Китая для крупного строительного проекта.
-                      Важно было доставить грузы в определенные сроки, так как
-                      проект был привязан к жесткому графику.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="portfolio__item">
-                  <img src="./assets/img/portfolio3.webp" alt="portfolio" />
-                  <div class="portfolio__info">
-                    <h4>Доставка товаров для стартапа в eCommerce</h4>
-                    <p>
-                      Молодой стартап в сфере электронной коммерции,
-                      специализирующийся на продаже аксессуаров для мобильных
-                      телефонов, решил расширить ассортимент товаров, закупив
-                      продукцию у китайских производителей. Задача — доставить
-                      небольшие партии товаров в Россию с учетом экономии на
-                      логистике.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="portfolio__item">
-                  <img src="./assets/img/portfolio1.webp" alt="portfolio" />
-                  <div class="portfolio__info">
-                    <h4>Перевозка опасного груза</h4>
-                    <p>
-                      Компания, занимающаяся производством химических веществ,
-                      обратилась к нам с просьбой организовать безопасную
-                      перевозку опасных химикатов из Китая в Европу. Груз
-                      требовал специальных условий транспортировки и соблюдения
-                      строгих международных стандартов.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="portfolio__item">
-                  <img src="./assets/img/portfolio2.webp" alt="portfolio" />
-                  <div class="portfolio__info">
-                    <h4>Товары для сельского хозяйства (животноводство)</h4>
-                    <p>
-                      Компания по продаже оборудования и кормов для
-                      животноводческих фермерских хозяйств обратилась с просьбой
-                      доставить товары из Китая в Россию, включая
-                      специализированное оборудование и кормовые добавки.
-                      Важными условиями были сроки поставки и соблюдение условий
-                      хранения при транспортировке.
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="partners">
+    <section class="section partners" id="partners">
       <div class="partners__container container">
-        <h2 class="title">Выкуп товаров c площадок</h2>
+        <h2 class="title">
+          Выкуп товаров для ВБ, Ozon, Amazon и его стоимость доставки
+        </h2>
 
-        <div
-          class="splide partners__splide"
-          id="splide-partners"
-          aria-label="Text message"
-        >
+        <div class="splide partners__splide" id="splide-partners">
           <div class="splide__track">
             <ul class="splide__list">
               <li class="splide__slide">
@@ -933,7 +895,7 @@
               >
             </li>
             <li>
-              <a href="https://www.wechat.com/ru/" target="_blank">WeChat</a>
+              <a class="socials__link-wechat" href="https://www.wechat.com/ru/" target="_blank">WeChat</a>
             </li>
           </ul>
         </div>
@@ -978,7 +940,7 @@
           </div>
           <div class="modal__item">
             <img src="./assets/img/check.svg" alt="Icon" />
-            <p>Минимальный вес отправления – 1м.куб.</p>
+            <p>Минимальный объем отправления – 1м.куб.</p>
           </div>
           <div class="modal__item">
             <img src="./assets/img/check.svg" alt="Icon" />
@@ -986,7 +948,14 @@
           </div>
           <div class="modal__item">
             <img src="./assets/img/check.svg" alt="Icon" />
-            <p>Оплата после прибытия на склад.</p>
+            <p>Оплата КАРГО: после прибытия на склад в пункт назначения</p>
+          </div>
+          <div class="modal__item">
+            <img src="./assets/img/check.svg" alt="Icon" />
+            <p>
+              Оплата СТАНДАРТНЫХ перевозок: частями – перед отправлением и после
+              прибытия в пункт назначения
+            </p>
           </div>
         </div>
       </div>
@@ -1020,6 +989,17 @@
             <img src="./assets/img/check.svg" alt="Icon" />
             <p>Оплата после прибытия на склад</p>
           </div>
+          <div class="modal__item">
+            <img src="./assets/img/check.svg" alt="Icon" />
+            <p>Оплата КАРГО: после прибытия на склад в пункт назначения</p>
+          </div>
+          <div class="modal__item">
+            <img src="./assets/img/check.svg" alt="Icon" />
+            <p>
+              Оплата СТАНДАРТНЫХ перевозок: частями – перед отправлением и после
+              прибытия в пункт назначения
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -1028,11 +1008,12 @@
       <div class="modal__overlay"></div>
       <div class="modal__content">
         <div class="modal_close"></div>
-        <h4 class="modal__title">Железнодорожная доставка</h4>
+        <h4 class="modal__title">ЖД</h4>
         <p class="modal__description">
-          Отличный вариант для больших партий товаров, которые не требуют
-          срочной доставки. Железнодорожный транспорт сочетает в себе хорошую
-          стоимость и время в пути, которое обычно составляет от 15 до 30 дней.
+          Отличный и самый оптимальный вариант для больших партий товаров,
+          которые не требуют срочной доставки. Железнодорожный транспорт
+          сочетает в себе хорошую стоимость и время в пути, которое обычно
+          составляет от 15 до 30 дней.
         </p>
 
         <div class="modal__list">
@@ -1042,7 +1023,7 @@
           </div>
           <div class="modal__item">
             <img src="./assets/img/check.svg" alt="Icon" />
-            <p>Минимальный размер отправления – 1м.куб</p>
+            <p>Минимальный объем отправления – 1м.куб</p>
           </div>
           <div class="modal__item">
             <img src="./assets/img/check.svg" alt="Icon" />
@@ -1050,7 +1031,14 @@
           </div>
           <div class="modal__item">
             <img src="./assets/img/check.svg" alt="Icon" />
-            <p>Оплата после прибытия на склад</p>
+            <p>Оплата КАРГО: после прибытия на склад в пункт назначения</p>
+          </div>
+          <div class="modal__item">
+            <img src="./assets/img/check.svg" alt="Icon" />
+            <p>
+              Оплата СТАНДАРТНЫХ перевозок: частями – перед отправлением и после
+              прибытия в пункт назначения
+            </p>
           </div>
         </div>
       </div>
@@ -1060,7 +1048,12 @@
       <div class="modal__overlay"></div>
       <div class="modal__content">
         <div class="modal_close"></div>
-        <h4 class="modal__title">Авто доставка</h4>
+        <h4 class="modal__title">Авто стандарт</h4>
+        <p class="modal__description">
+          Самый оптимальный вариант для регулярных поставок товаров. Авто
+          доставка позволяет осуществлять перевозку тех видов грузов, которые
+          могут быть запрещены к перевозке морем, авиа и жд доставками.
+        </p>
 
         <div class="modal__list">
           <div class="modal__item">
@@ -1077,7 +1070,14 @@
           </div>
           <div class="modal__item">
             <img src="./assets/img/check.svg" alt="Icon" />
-            <p>Оплата после прибытия на склад</p>
+            <p>Оплата КАРГО: после прибытия на склад в пункт назначения</p>
+          </div>
+          <div class="modal__item">
+            <img src="./assets/img/check.svg" alt="Icon" />
+            <p>
+              Оплата СТАНДАРТНЫХ перевозок: частями – перед отправлением и после
+              прибытия в пункт назначения
+            </p>
           </div>
         </div>
       </div>
@@ -1087,7 +1087,12 @@
       <div class="modal__overlay"></div>
       <div class="modal__content">
         <div class="modal_close"></div>
-        <h4 class="modal__title">Авто быстрая доставка</h4>
+        <h4 class="modal__title">Авто быстрое</h4>
+        <p class="modal__description">
+          Данный вид доставки отлично подходит для предпринимателей МП для
+          срочного пополнения склада товаром. Данный вид доставки более дешевый,
+          чем авиа, но по скорости не уступает авиа доставке.
+        </p>
 
         <div class="modal__list">
           <div class="modal__item">
@@ -1104,7 +1109,14 @@
           </div>
           <div class="modal__item">
             <img src="./assets/img/check.svg" alt="Icon" />
-            <p>Оплата после прибытия на склад</p>
+            <p>Оплата КАРГО: после прибытия на склад в пункт назначения</p>
+          </div>
+          <div class="modal__item">
+            <img src="./assets/img/check.svg" alt="Icon" />
+            <p>
+              Оплата СТАНДАРТНЫХ перевозок: частями – перед отправлением и после
+              прибытия в пункт назначения
+            </p>
           </div>
         </div>
       </div>
@@ -1151,6 +1163,18 @@
           </div>
           <button>Отправить запрос</button>
         </form>
+      </div>
+    </div>
+
+    <div class="modal modal__socials-wechat modal_hidden">
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <div class="modal_close"></div>
+        <h4 class="modal__title">Отсканируйте QR-code</h4>
+
+        <div class="modal__img">
+          <img src="./assets/img/qr-wechat.webp" alt="QR-code">
+        </div>
       </div>
     </div>
 

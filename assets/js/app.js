@@ -23,24 +23,23 @@ new Splide("#splide-partners", {
   },
 }).mount();
 
-new Splide("#portfolio-splide", {
-  perPage: 3,
+new Splide("#sales-splide", {
+  perPage: 4,
   perMove: 1,
   rewind: true,
-  pagination: true,
+  pagination: false,
   arrows: false,
-  gap: 20,
+  type: "loop",
+  drag: "free",
   breakpoints: {
     1024: {
-      perPage: 2,
+      perPage: 3,
     },
     768: {
-      perPage: 1,
-      padding: { left: 40, right: 40 },
-      type: "loop",
+      perPage: 2,
     },
   },
-}).mount();
+}).mount(window.splide.Extensions);
 
 // Changing the class when scrolling
 window.addEventListener("scroll", () => {
@@ -145,3 +144,25 @@ function closeMenu() {
 }
 
 menuItems.forEach((item) => item.addEventListener("click", () => closeMenu()));
+
+document.querySelectorAll(".socials__link-wechat").forEach((link) =>
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const modal = document.querySelector(".modal__socials-wechat");
+
+    modal.addEventListener("click", (e) => {
+      if (
+        e.target.classList.contains("modal_close") ||
+        e.target.classList.contains("modal__overlay")
+      ) {
+        modal.classList.add("modal_hidden");
+        document.body.classList.remove("hidden");
+      }
+    });
+
+    if (modal.classList.contains("modal_hidden")) {
+      modal.classList.remove("modal_hidden");
+      document.body.classList.add("hidden");
+    }
+  })
+);
