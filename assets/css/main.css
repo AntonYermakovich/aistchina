@@ -456,6 +456,18 @@ svg {
 .future {
   padding-bottom: 50px;
   padding: 100px 0;
+  position: relative;
+}
+.future::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: url("../img/wall.webp") no-repeat bottom center/cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
 }
 .future__container {
   position: relative;
@@ -463,17 +475,17 @@ svg {
 .future__list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-radius: 20px;
   gap: 80px;
-  padding: 40px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  background: #fff;
 }
 .future__item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.7);
 }
 .future__item .img {
   width: 92px;
@@ -1199,7 +1211,7 @@ svg {
     left: 0;
     background: var(--primary-2);
     z-index: 0;
-    padding: 100px 30px 85px;
+    padding: 100px 30px 30px;
     width: 100%;
     transform: translateX(-100%);
     transition: 0.25s;
