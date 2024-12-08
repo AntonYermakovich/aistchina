@@ -109,14 +109,14 @@
           </div>
         </div>
         <div class="hero__form">
-          <h2 style="text-align: center;">Получить консультацию</h2>
+          <h2 style="text-align: center">Получить консультацию</h2>
           <form class="form form__call">
             <div class="form__field">
               <input name="name" type="text" placeholder=" " id="name" />
               <label for="name">Ваше имя</label>
             </div>
             <div class="form__field">
-              <input name="phone" type="text" placeholder=" " id="phone" />
+              <input name="phone" type="phone" placeholder=" " id="phone" />
               <label for="phone">Телефон</label>
             </div>
             <div class="form__field">
@@ -568,7 +568,7 @@
 
                     <div class="price">
                       <p>$ 6133,20</p>
-                      <button>Заказать</button>
+                      <a href="#sender">Заказать</a>
                     </div>
                   </div>
                 </div>
@@ -714,11 +714,11 @@
       </div>
     </section>
 
-    <section class="sender">
+    <section class="sender" id="sender">
       <div class="sender__container container">
         <h2 class="title">Оформление заказа</h2>
 
-        <form class="form">
+        <form class="form form__delivery">
           <h4>Ваши данные</h4>
           <div class="form__line">
             <div class="form__field">
@@ -726,7 +726,7 @@
               <label for="fio">Ф.И.О./Компания</label>
             </div>
             <div class="form__field">
-              <input name="phone" type="text" placeholder=" " id="phone" />
+              <input name="phone" type="phone" placeholder=" " id="phone" />
               <label for="phone">Телефон</label>
             </div>
           </div>
@@ -896,7 +896,12 @@
               >
             </li>
             <li>
-              <a class="socials__link-wechat" href="https://www.wechat.com/ru/" target="_blank">WeChat</a>
+              <a
+                class="socials__link-wechat"
+                href="https://www.wechat.com/ru/"
+                target="_blank"
+                >WeChat</a
+              >
             </li>
           </ul>
         </div>
@@ -1131,27 +1136,12 @@
 
         <form class="form form__call">
           <div class="form__field">
-            <input name="fio" type="text" placeholder=" " id="fio" />
-            <label for="fio">Ф.И.О./Компания</label>
+            <input name="name" type="text" placeholder=" " id="name" />
+            <label for="name">Ваше имя</label>
           </div>
           <div class="form__field">
-            <input name="email" type="text" placeholder=" " id="email" />
-            <label for="email">Электронная почта</label>
-          </div>
-          <div class="form__field">
-            <input name="phone" type="text" placeholder=" " id="phone" />
+            <input name="phone" type="phone" placeholder=" " id="phone" />
             <label for="phone">Телефон</label>
-          </div>
-          <div class="form__field">
-            <select name="type">
-              <option value="0" selected>Тип консультации</option>
-              <option value="1">Общий вопрос</option>
-              <option value="2">Консультация по стоимости</option>
-              <option value="3">Вопрос по таможне</option>
-              <option value="4">Вопрос по доставке</option>
-              <option value="5">Другой</option>
-            </select>
-            <img class="icon" src="./assets/img/arrow.webp" alt="Arrow" />
           </div>
           <div class="form__field">
             <textarea
@@ -1162,7 +1152,7 @@
             ></textarea>
             <label for="message">Ваше сообщение</label>
           </div>
-          <button>Отправить запрос</button>
+          <button>Отправить</button>
         </form>
       </div>
     </div>
@@ -1174,7 +1164,7 @@
         <h4 class="modal__title">Отсканируйте QR-code</h4>
 
         <div class="modal__img">
-          <img src="./assets/img/qr-wechat.webp" alt="QR-code">
+          <img src="./assets/img/qr-wechat.webp" alt="QR-code" />
         </div>
       </div>
     </div>
@@ -1183,6 +1173,8 @@
     <div class="overlay"></div>
 
     <!-- scripts -->
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script src="https://unpkg.com/imask"></script>
     <script src="./assets/js/splide-extension-auto-scroll.min.js"></script>
     <script src="./assets/js/splide.min.js"></script>
     <script src="./assets/js/app.js"></script>

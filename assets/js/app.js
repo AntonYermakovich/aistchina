@@ -166,3 +166,163 @@ document.querySelectorAll(".socials__link-wechat").forEach((link) =>
     }
   })
 );
+
+// mask for number
+
+const phones = document.querySelectorAll("input[type='phone']");
+const maskOptions = {
+  mask: "+{7}(000) 000-00-00",
+  lazy: true,
+};
+
+phones.forEach((phone) => IMask(phone, maskOptions));
+
+// Validate forms
+let validatorCall;
+let validatorDelivery;
+
+document.querySelectorAll(".form__call").forEach((form) => {
+  validatorCall = new JustValidate(form, {
+    errorLabelCssClass: ["form__error-message"],
+  });
+
+  validatorCall
+    .addField("#name", [
+      {
+        rule: "required",
+        errorMessage: "Введите имя",
+      },
+      {
+        rule: "minLength",
+        value: 2,
+        errorMessage: "Минимальная длина имени 2 символа",
+      },
+    ])
+    .addField("#phone", [
+      {
+        rule: "required",
+        errorMessage: "Введите телефон",
+      },
+      {
+        rule: "minLength",
+        value: 17,
+        errorMessage: "Неверный номер телефона",
+      },
+    ])
+    .addField("#message", [
+      {
+        rule: "required",
+        errorMessage: "Введите сообщение",
+      },
+      {
+        rule: "minLength",
+        value: 2,
+        errorMessage: "Минимальная длина имени 2 символа",
+      },
+    ]);
+});
+
+validatorDelivery = new JustValidate('.form__delivery', {
+  errorLabelCssClass: ["form__error-message"],
+});
+
+validatorDelivery
+  .addField("#fio", [
+    {
+      rule: "required",
+      errorMessage: "Введите ваше имя/компанию",
+    },
+  ])
+  .addField("#phone", [
+    {
+      rule: "required",
+      errorMessage: "Введите телефон",
+    },
+    {
+      rule: "minLength",
+      value: 17,
+      errorMessage: "Неверный номер телефона",
+    },
+  ])
+  .addField("#email", [
+    {
+      rule: "required",
+      errorMessage: "Введите email",
+    },
+    {
+      rule: "email",
+      errorMessage: "Некорректный e-mail",
+    },
+  ])
+  .addField("#sendFrom", [
+    {
+      rule: "required",
+      errorMessage: "Введите адрес отправителя",
+    },
+  ])
+  .addField("#sendTo", [
+    {
+      rule: "required",
+      errorMessage: "Введите адрес получателя",
+    },
+  ])
+  .addField("#weight", [
+    {
+      rule: "required",
+      errorMessage: "Введите вес товара",
+    },
+  ])
+  .addField("#volume", [
+    {
+      rule: "required",
+      errorMessage: "Введите объем товара",
+    },
+  ])
+  .addField("#productDescription", [
+    {
+      rule: "required",
+      errorMessage: "Введите описание товара",
+    },
+  ])
+  .addField("#date", [
+    {
+      rule: "required",
+      errorMessage: "Выберите дату",
+    },
+  ])
+  // .addField("#method", [
+  //   {
+  //     rule: "required",
+  //     errorMessage: "Выберите способ доставки",
+  //   },
+  // ])
+  .addField("#comment", [
+    {
+      rule: "required",
+      errorMessage: "Введите комментарий",
+    },
+  ]);
+
+// Send forms
+document
+  .querySelectorAll(".form")
+  .forEach((form) => form.addEventListener("submit", sendForm));
+
+function sendForm() {
+  const formData = {};
+
+  if (validatorCall.isValid) {
+    // Валидация обратного звонка
+    const inputs = this.querySelectorAll("input, textarea");
+    inputs.forEach((input) => (formData[input.name] = input.value));
+
+    console.log(formData);
+  } else if (validatorDelivery.isValid) {
+    const inputs = this.querySelectorAll("input, textarea");
+    inputs.forEach((input) => (formData[input.name] = input.value));
+
+    console.log(formData);
+  }
+
+  // console.log(this)
+}
