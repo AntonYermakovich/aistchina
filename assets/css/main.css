@@ -861,7 +861,7 @@ svg {
   font-size: 20px;
   font-weight: 600;
 }
-.partners__info .price button {
+.partners__info .price a {
   padding: 8px 20px;
   border-radius: 7px;
   border: 1px solid var(--primary-color);
@@ -873,7 +873,7 @@ svg {
   font-weight: 600;
   transition: 0.15s;
 }
-.partners__info .price button:hover {
+.partners__info .price a:hover {
   background: var(--primary-color);
   border-color: var(--primary-color);
   color: #fff;
@@ -928,6 +928,7 @@ svg {
   top: 15px;
   left: 10px;
   transition: 0.15s;
+  pointer-events: none;
 }
 .form__field .icon {
   position: absolute;

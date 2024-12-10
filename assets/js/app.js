@@ -167,62 +167,85 @@ document.querySelectorAll(".socials__link-wechat").forEach((link) =>
   })
 );
 
-// mask for number
-
-const phones = document.querySelectorAll("input[type='phone']");
-const maskOptions = {
-  mask: "+{7}(000) 000-00-00",
-  lazy: true,
-};
-
-phones.forEach((phone) => IMask(phone, maskOptions));
-
 // Validate forms
-let validatorCall;
-let validatorDelivery;
+const validatorCallBack = new JustValidate(".form__callback", {
+  errorLabelCssClass: ["form__error-message"],
+});
+validatorCallBack
+  .addField("#name", [
+    {
+      rule: "required",
+      errorMessage: "Введите имя",
+    },
+    {
+      rule: "minLength",
+      value: 2,
+      errorMessage: "Минимальная длина имени 2 символа",
+    },
+  ])
+  .addField("#mobile", [
+    {
+      rule: "required",
+      errorMessage: "Введите телефон",
+    },
+    {
+      rule: "minLength",
+      value: 17,
+      errorMessage: "Неверный номер телефона",
+    },
+  ])
+  .addField("#text", [
+    {
+      rule: "required",
+      errorMessage: "Введите сообщение",
+    },
+    {
+      rule: "minLength",
+      value: 2,
+      errorMessage: "Минимальная длина сообщения 2 символа",
+    },
+  ]);
 
-document.querySelectorAll(".form__call").forEach((form) => {
-  validatorCall = new JustValidate(form, {
-    errorLabelCssClass: ["form__error-message"],
-  });
-
-  validatorCall
-    .addField("#name", [
-      {
-        rule: "required",
-        errorMessage: "Введите имя",
-      },
-      {
-        rule: "minLength",
-        value: 2,
-        errorMessage: "Минимальная длина имени 2 символа",
-      },
-    ])
-    .addField("#phone", [
-      {
-        rule: "required",
-        errorMessage: "Введите телефон",
-      },
-      {
-        rule: "minLength",
-        value: 17,
-        errorMessage: "Неверный номер телефона",
-      },
-    ])
-    .addField("#message", [
-      {
-        rule: "required",
-        errorMessage: "Введите сообщение",
-      },
-      {
-        rule: "minLength",
-        value: 2,
-        errorMessage: "Минимальная длина имени 2 символа",
-      },
-    ]);
+const validatorCall = new JustValidate(".form__call", {
+  errorLabelCssClass: ["form__error-message"],
 });
 
-validatorDelivery = new JustValidate('.form__delivery', {
+validatorCall
+  .addField("#name", [
+    {
+      rule: "required",
+      errorMessage: "Введите имя",
+    },
+    {
+      rule: "minLength",
+      value: 2,
+      errorMessage: "Минимальная длина имени 2 символа",
+    },
+  ])
+  .addField("#phone", [
+    {
+      rule: "required",
+      errorMessage: "Введите телефон",
+    },
+    {
+      rule: "minLength",
+      value: 17,
+      errorMessage: "Неверный номер телефона",
+    },
+  ])
+  .addField("#message", [
+    {
+      rule: "required",
+      errorMessage: "Введите сообщение",
+    },
+    {
+      rule: "minLength",
+      value: 2,
+      errorMessage: "Минимальная длина сообщения 2 символа",
+    },
+  ]);
+
+const validatorDelivery = new JustValidate(".form__delivery", {
   errorLabelCssClass: ["form__error-message"],
 });
 
@@ -290,12 +313,12 @@ validatorDelivery
       errorMessage: "Выберите дату",
     },
   ])
-  // .addField("#method", [
-  //   {
-  //     rule: "required",
-  //     errorMessage: "Выберите способ доставки",
-  //   },
-  // ])
+  .addField("#method", [
+    {
+      rule: "required",
+      errorMessage: "Выберите способ доставки",
+    },
+  ])
   .addField("#comment", [
     {
       rule: "required",
@@ -311,18 +334,49 @@ document
 function sendForm() {
   const formData = {};
 
-  if (validatorCall.isValid) {
+  if (
+    validatorCall.isValid ||
+    validatorCallBack.isValid ||
+    validatorDelivery.isValid
+  ) {
     // Валидация обратного звонка
     const inputs = this.querySelectorAll("input, textarea");
     inputs.forEach((input) => (formData[input.name] = input.value));
 
-    console.log(formData);
-  } else if (validatorDelivery.isValid) {
-    const inputs = this.querySelectorAll("input, textarea");
-    inputs.forEach((input) => (formData[input.name] = input.value));
+    // данные для отправки в тг
+    console.log("Send data => ", formData);
 
-    console.log(formData);
+    // Сброс формы
+    this.reset();
   }
-
-  // console.log(this)
 }
+
+// Masks
+const phones = document.querySelectorAll("input[type='phone']");
+const maskOptions = {
+  mask: "+{7}(000) 000-00-00",
+  lazy: true,
+};
+phones.forEach((phone) => IMask(phone, maskOptions));
+
+function maskForInput(element, text) {
+  IMask(document.getElementById(element), {
+    mask: [
+      { mask: "" },
+      {
+        mask: "d " + text,
+        lazy: false,
+        expose: true,
+        blocks: {
+          d: {
+            mask: Number,
+            expose: true,
+          },
+        },
+      },
+    ],
+  });
+}
+
+maskForInput("weight", "кг");
+maskForInput("volume", "м³");

@@ -110,24 +110,25 @@
         </div>
         <div class="hero__form">
           <h2 style="text-align: center">Получить консультацию</h2>
-          <form class="form form__call">
+          <form class="form form__callback">
             <div class="form__field">
               <input name="name" type="text" placeholder=" " id="name" />
               <label for="name">Ваше имя</label>
             </div>
             <div class="form__field">
-              <input name="phone" type="phone" placeholder=" " id="phone" />
-              <label for="phone">Телефон</label>
+              <input name="phone" type="phone" placeholder=" " id="mobile" />
+              <label for="mobile">Телефон</label>
             </div>
             <div class="form__field">
               <textarea
                 rows="5"
                 name="message"
                 placeholder=" "
-                id="message"
+                id="text"
               ></textarea>
-              <label for="message">Ваше сообщение</label>
+              <label for="text">Ваше сообщение</label>
             </div>
+            <input type="hidden" name="titleForm" value="Заказать консультацию">
             <button>Отправить</button>
           </form>
         </div>
@@ -595,7 +596,7 @@
 
                     <div class="price">
                       <p>$ 336,00</p>
-                      <button>Заказать</button>
+                      <a href="#sender">Заказать</a>
                     </div>
                   </div>
                 </div>
@@ -622,7 +623,7 @@
 
                     <div class="price">
                       <p>$ 3696,00</p>
-                      <button>Заказать</button>
+                      <a href="#sender">Заказать</a>
                     </div>
                   </div>
                 </div>
@@ -649,7 +650,7 @@
 
                     <div class="price">
                       <p>$ 1700,00</p>
-                      <button>Заказать</button>
+                      <a href="#sender">Заказать</a>
                     </div>
                   </div>
                 </div>
@@ -676,7 +677,7 @@
 
                     <div class="price">
                       <p>$ 1792,00</p>
-                      <button>Заказать</button>
+                      <a href="#sender">Заказать</a>
                     </div>
                   </div>
                 </div>
@@ -703,7 +704,7 @@
 
                     <div class="price">
                       <p>$ 640,00</p>
-                      <button>Заказать</button>
+                      <a href="#sender">Заказать</a>
                     </div>
                   </div>
                 </div>
@@ -784,12 +785,13 @@
             </div>
 
             <div class="form__field">
-              <select name="method">
-                <option value="0" selected>Способ доставки</option>
-                <option value="1">Морем</option>
-                <option value="2">Авиа</option>
-                <option value="3">Железная дорога</option>
-                <option value="4">Экспресс</option>
+              <select name="method" id="method">
+                <option value="" selected>Способ доставки</option>
+                <option value="1">Быстрое авто</option>
+                <option value="2">Авто</option>
+                <option value="3">Авиа</option>
+                <option value="4">ЖД</option>
+                <option value="5">Море</option>
               </select>
               <img class="icon" src="./assets/img/arrow.webp" alt="Arrow" />
             </div>
@@ -804,6 +806,7 @@
             ></textarea>
             <label for="comment">Комментарий</label>
           </div>
+          <input type="hidden" name="titleForm" value="Заказ товара">
           <button>Оформить заказ</button>
         </form>
       </div>
@@ -1152,6 +1155,7 @@
             ></textarea>
             <label for="message">Ваше сообщение</label>
           </div>
+          <input type="hidden" name="titleForm" value="Заказать консультацию">
           <button>Отправить</button>
         </form>
       </div>
