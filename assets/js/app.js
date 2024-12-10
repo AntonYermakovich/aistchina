@@ -167,6 +167,22 @@ document.querySelectorAll(".socials__link-wechat").forEach((link) =>
   })
 );
 
+function openModalThanks() {
+  const modalThanks = document.querySelector(".modal__thanks");
+  modalThanks.classList.remove("modal_hidden");
+  document.body.classList.add("hidden");
+  
+  modalThanks.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("modal_close") ||
+      e.target.classList.contains("modal__overlay")
+    ) {
+      modalThanks.classList.add('modal_hidden')
+      document.body.classList.remove("hidden");
+    }
+  });
+}
+
 // Validate forms
 const validatorCallBack = new JustValidate(".form__callback", {
   errorLabelCssClass: ["form__error-message"],
@@ -354,7 +370,11 @@ async function sendForm() {
         }),
       });
 
-      this.reset();
+      if (res.ok) {
+        // Сброс формы
+        openModalThanks();
+        this.reset();
+      }
     } catch (error) {
       throw new Error(res.statusText);
     }
@@ -364,7 +384,22 @@ async function sendForm() {
     const inputs = this.querySelectorAll("input, textarea, select");
     inputs.forEach((input) => (formData[input.name] = input.value));
 
-    const text = `${formData.titleForm}\n\n Данные о заказчике\n Имя: ${formData.fio}\n Телефон: ${formData.phone}\n Почта: ${formData.email}\n\n Данные о товаре\n Адрес отправителя: ${formData.sendFrom}\n Адрес получателя: ${formData.sendTo}\n Вес: ${formData.weight}\n Объем: ${formData.volume}\n Описание товара: ${formData.productDescription}\n\n Данные о доставке\n Дата доставки: ${formData.date.split('-').reverse().join('.')}\n Способ доставки: ${formData.method}\n Сообщение: ${formData.comment}`;
+    const text = `${formData.titleForm}\n\n Данные о заказчике\n Имя: ${
+      formData.fio
+    }\n Телефон: ${formData.phone}\n Почта: ${
+      formData.email
+    }\n\n Данные о товаре\n Адрес отправителя: ${
+      formData.sendFrom
+    }\n Адрес получателя: ${formData.sendTo}\n Вес: ${
+      formData.weight
+    }\n Объем: ${formData.volume}\n Описание товара: ${
+      formData.productDescription
+    }\n\n Данные о доставке\n Дата доставки: ${formData.date
+      .split("-")
+      .reverse()
+      .join(".")}\n Способ доставки: ${formData.method}\n Сообщение: ${
+      formData.comment
+    }`;
 
     try {
       const res = await fetch(API, {
@@ -380,6 +415,7 @@ async function sendForm() {
 
       if (res.ok) {
         // Сброс формы
+        openModalThanks();
         this.reset();
       }
     } catch (error) {

@@ -94,6 +94,25 @@ svg {
   opacity: 1;
   transition: 0.15s;
 
+  &__info {
+    display: grid;
+    place-items: center;
+    text-align: center;
+
+    img {
+      width: 200px;
+    }
+
+    h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+
   &_hidden {
     opacity: 0;
     z-index: -1;
@@ -118,7 +137,7 @@ svg {
 
   &__content {
     margin: 0 15px;
-    max-width: 600px;
+    max-width: 500px;
     width: 100%;
     background: #fff;
     border-radius: 20px;
