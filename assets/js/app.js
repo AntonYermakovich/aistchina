@@ -209,7 +209,6 @@ validatorCallBack
 const validatorCall = new JustValidate(".form__call", {
   errorLabelCssClass: ["form__error-message"],
 });
-
 validatorCall
   .addField("#name", [
     {
@@ -248,7 +247,6 @@ validatorCall
 const validatorDelivery = new JustValidate(".form__delivery", {
   errorLabelCssClass: ["form__error-message"],
 });
-
 validatorDelivery
   .addField("#fio", [
     {
@@ -331,23 +329,62 @@ document
   .querySelectorAll(".form")
   .forEach((form) => form.addEventListener("submit", sendForm));
 
-function sendForm() {
+async function sendForm() {
   const formData = {};
+  const TELEGRAM_BOT_TOKEN = "7819094602:AAEhyL2y0UbrGRGSR8KTcN5pRNYYAugiM20";
+  const TELEGRAM_CHAT_ID = "@aistchina";
+  const API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
 
-  if (
-    validatorCall.isValid ||
-    validatorCallBack.isValid ||
-    validatorDelivery.isValid
-  ) {
-    // Валидация обратного звонка
+  if (validatorCall.isValid || validatorCallBack.isValid) {
     const inputs = this.querySelectorAll("input, textarea");
     inputs.forEach((input) => (formData[input.name] = input.value));
 
     // данные для отправки в тг
-    console.log("Send data => ", formData);
+    const text = `${formData.titleForm}\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`;
 
-    // Сброс формы
-    this.reset();
+    try {
+      const res = await fetch(API, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text,
+        }),
+      });
+
+      this.reset();
+    } catch (error) {
+      throw new Error(res.statusText);
+    }
+  }
+
+  if (validatorDelivery.isValid) {
+    const inputs = this.querySelectorAll("input, textarea, select");
+    inputs.forEach((input) => (formData[input.name] = input.value));
+
+    const text = `${formData.titleForm}\n\n Данные о заказчике\n Имя: ${formData.fio}\n Телефон: ${formData.phone}\n Почта: ${formData.email}\n\n Данные о товаре\n Адрес отправителя: ${formData.sendFrom}\n Адрес получателя: ${formData.sendTo}\n Вес: ${formData.weight}\n Объем: ${formData.volume}\n Описание товара: ${formData.productDescription}\n\n Данные о доставке\n Дата доставки: ${formData.date.split('-').reverse().join('.')}\n Способ доставки: ${formData.method}\n Сообщение: ${formData.comment}`;
+
+    try {
+      const res = await fetch(API, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text,
+        }),
+      });
+
+      if (res.ok) {
+        // Сброс формы
+        this.reset();
+      }
+    } catch (error) {
+      throw new Error(res.statusText);
+    }
   }
 }
 
