@@ -171,13 +171,20 @@ function openModalThanks() {
   const modalThanks = document.querySelector(".modal__thanks");
   modalThanks.classList.remove("modal_hidden");
   document.body.classList.add("hidden");
-  
+
+  !document
+    .querySelector(".modal__consultation")
+    .classList.contains("modal_hidden") &&
+    document
+      .querySelector(".modal__consultation")
+      .classList.add("modal_hidden");
+
   modalThanks.addEventListener("click", (e) => {
     if (
       e.target.classList.contains("modal_close") ||
       e.target.classList.contains("modal__overlay")
     ) {
-      modalThanks.classList.add('modal_hidden')
+      modalThanks.classList.add("modal_hidden");
       document.body.classList.remove("hidden");
     }
   });
@@ -222,7 +229,7 @@ validatorCallBack
     },
   ]);
 
-const validatorCall = new JustValidate(".form__call", {
+const validatorCall = new JustValidate(".form__callback2", {
   errorLabelCssClass: ["form__error-message"],
 });
 validatorCall
@@ -340,90 +347,6 @@ validatorDelivery
     },
   ]);
 
-// Send forms
-document
-  .querySelectorAll(".form")
-  .forEach((form) => form.addEventListener("submit", sendForm));
-
-async function sendForm() {
-  const formData = {};
-  const TELEGRAM_BOT_TOKEN = "7819094602:AAEhyL2y0UbrGRGSR8KTcN5pRNYYAugiM20";
-  const TELEGRAM_CHAT_ID = "@aistchina";
-  const API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-
-  if (validatorCall.isValid || validatorCallBack.isValid) {
-    const inputs = this.querySelectorAll("input, textarea");
-    inputs.forEach((input) => (formData[input.name] = input.value));
-
-    // данные для отправки в тг
-    const text = `${formData.titleForm}\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`;
-
-    try {
-      const res = await fetch(API, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text,
-        }),
-      });
-
-      if (res.ok) {
-        // Сброс формы
-        openModalThanks();
-        this.reset();
-      }
-    } catch (error) {
-      throw new Error(res.statusText);
-    }
-  }
-
-  if (validatorDelivery.isValid) {
-    const inputs = this.querySelectorAll("input, textarea, select");
-    inputs.forEach((input) => (formData[input.name] = input.value));
-
-    const text = `${formData.titleForm}\n\n Данные о заказчике\n Имя: ${
-      formData.fio
-    }\n Телефон: ${formData.phone}\n Почта: ${
-      formData.email
-    }\n\n Данные о товаре\n Адрес отправителя: ${
-      formData.sendFrom
-    }\n Адрес получателя: ${formData.sendTo}\n Вес: ${
-      formData.weight
-    }\n Объем: ${formData.volume}\n Описание товара: ${
-      formData.productDescription
-    }\n\n Данные о доставке\n Дата доставки: ${formData.date
-      .split("-")
-      .reverse()
-      .join(".")}\n Способ доставки: ${formData.method}\n Сообщение: ${
-      formData.comment
-    }`;
-
-    try {
-      const res = await fetch(API, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text,
-        }),
-      });
-
-      if (res.ok) {
-        // Сброс формы
-        openModalThanks();
-        this.reset();
-      }
-    } catch (error) {
-      throw new Error(res.statusText);
-    }
-  }
-}
-
 // Masks
 const phones = document.querySelectorAll("input[type='phone']");
 const maskOptions = {
@@ -453,3 +376,113 @@ function maskForInput(element, text) {
 
 maskForInput("weight", "кг");
 maskForInput("volume", "м³");
+
+// Get inputs for form
+function formInputs(form) {
+  const formData = {};
+  const inputs = form.querySelectorAll("input, textarea, select");
+  inputs.forEach((input) => (formData[input.name] = input.value));
+  return formData;
+}
+
+// Send TG message
+async function sendMessageOfTelegram(data) {
+  const TELEGRAM_BOT_TOKEN = "7819094602:AAEhyL2y0UbrGRGSR8KTcN5pRNYYAugiM20";
+  const TELEGRAM_CHAT_ID = "@aistchina";
+  const API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+  return (res = await fetch(API, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      chat_id: TELEGRAM_CHAT_ID,
+      text: data,
+    }),
+  }));
+}
+
+// Send forms
+document
+  .querySelector(".form__callback")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (validatorCallBack.isValid) {
+      const formData = formInputs(e.target);
+      const text = `${formData.titleForm}\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`;
+
+      try {
+        const res = await sendMessageOfTelegram(text);
+
+        if (res.ok) {
+          openModalThanks();
+          e.target.reset();
+        }
+      } catch (error) {
+        throw new Error(res.statusText);
+      }
+    }
+  });
+
+document
+  .querySelector(".form__callback2")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (validatorCall.isValid) {
+      const formData = formInputs(e.target);
+
+      const text = `${formData.titleForm}\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`;
+
+      try {
+        const res = await sendMessageOfTelegram(text);
+
+        if (res.ok) {
+          openModalThanks();
+          e.target.reset();
+        }
+      } catch (error) {
+        throw new Error(res.statusText);
+      }
+    }
+  });
+
+document
+  .querySelector(".form__delivery")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (validatorDelivery.isValid) {
+      const formData = formInputs(e.target);
+
+      const text = `${formData.titleForm}\n\n Данные о заказчике\n Имя: ${
+        formData.fio
+      }\n Телефон: ${formData.phone}\n Почта: ${
+        formData.email
+      }\n\n Данные о товаре\n Адрес отправителя: ${
+        formData.sendFrom
+      }\n Адрес получателя: ${formData.sendTo}\n Вес: ${
+        formData.weight
+      }\n Объем: ${formData.volume}\n Описание товара: ${
+        formData.productDescription
+      }\n\n Данные о доставке\n Дата доставки: ${formData.date
+        .split("-")
+        .reverse()
+        .join(".")}\n Способ доставки: ${formData.method}\n Сообщение: ${
+        formData.comment
+      }`;
+
+      try {
+        const res = await sendMessageOfTelegram(text);
+
+        if (res.ok) {
+          openModalThanks();
+          e.target.reset();
+        }
+      } catch (error) {
+        throw new Error(res.statusText);
+      }
+    }
+  });
