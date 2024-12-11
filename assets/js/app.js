@@ -398,6 +398,7 @@ async function sendMessageOfTelegram(data) {
     },
     body: JSON.stringify({
       chat_id: TELEGRAM_CHAT_ID,
+      parse_mode: 'html',
       text: data,
     }),
   }));
@@ -411,7 +412,7 @@ document
 
     if (validatorCallBack.isValid) {
       const formData = formInputs(e.target);
-      const text = `${formData.titleForm}\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`;
+      const text = `<b>${formData.titleForm}</b>\n\n<b>Имя:</b> ${formData.name}\n<b>Телефон:</b> ${formData.phone}\n<b>Сообщение:</b> ${formData.message}`;
 
       try {
         const res = await sendMessageOfTelegram(text);
@@ -433,8 +434,7 @@ document
 
     if (validatorCall.isValid) {
       const formData = formInputs(e.target);
-
-      const text = `${formData.titleForm}\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`;
+      const text = `<b>${formData.titleForm}</b>\n\n<b>Имя:</b> ${formData.name}\n<b>Телефон:</b> ${formData.phone}\n<b>Сообщение:</b> ${formData.message}`;
 
       try {
         const res = await sendMessageOfTelegram(text);
@@ -457,20 +457,20 @@ document
     if (validatorDelivery.isValid) {
       const formData = formInputs(e.target);
 
-      const text = `${formData.titleForm}\n\n Данные о заказчике\n Имя: ${
+      const text = `<b>${formData.titleForm}</b>\n\n <b>Данные о заказчике\n Имя:</b> ${
         formData.fio
-      }\n Телефон: ${formData.phone}\n Почта: ${
+      }\n <b>Телефон:</b> ${formData.phone}\n <b>Почта:</b> ${
         formData.email
-      }\n\n Данные о товаре\n Адрес отправителя: ${
+      }\n\n <b>Данные о товаре\n Адрес отправителя:</b> ${
         formData.sendFrom
-      }\n Адрес получателя: ${formData.sendTo}\n Вес: ${
+      }\n <b>Адрес получателя:</b> ${formData.sendTo}\n <b>Вес:</b> ${
         formData.weight
-      }\n Объем: ${formData.volume}\n Описание товара: ${
+      }\n <b>Объем:</b> ${formData.volume}\n <b>Описание товара:</b> ${
         formData.productDescription
-      }\n\n Данные о доставке\n Дата доставки: ${formData.date
+      }\n\n <b>Данные о доставке\n Дата доставки:</b> ${formData.date
         .split("-")
         .reverse()
-        .join(".")}\n Способ доставки: ${formData.method}\n Сообщение: ${
+        .join(".")}\n <b>Способ доставки:</b> ${formData.method}\n <b>Сообщение:</b> ${
         formData.comment
       }`;
 
